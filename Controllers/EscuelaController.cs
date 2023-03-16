@@ -11,6 +11,10 @@ namespace platzi_asp_net_core.Controllers
             escuela.AñoDeCreación= 2005;
             escuela.UniqueId = Guid.NewGuid().ToString();
             escuela.Nombre = "Roberto Muller";
+            escuela.Pais="Argentina";
+            escuela.Ciudad = "Resistencia";
+            escuela.Direccion = "Misionero Klein 440";
+            escuela.TipoEscuela = TiposEscuela.Secundaria;
 
             return View(escuela);
         }

@@ -11,7 +11,7 @@ namespace platzi_asp_net_core.Models
         public string Pais { get; set; }
         public string Ciudad { get; set; }
 
-        public string Dirección { get; set; }
+        public string Direccion { get; set; }
 
         public TiposEscuela TipoEscuela { get; set; }
         public List<Curso> Cursos { get; set; }
