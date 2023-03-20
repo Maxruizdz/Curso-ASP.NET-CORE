@@ -1,9 +1,14 @@
+using Microsoft.EntityFrameworkCore;
+using platzi_asp_net_core.Models;
+
 var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddDbContext<EscuelaContext>(options => options.UseInMemoryDatabase("testDB"));
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

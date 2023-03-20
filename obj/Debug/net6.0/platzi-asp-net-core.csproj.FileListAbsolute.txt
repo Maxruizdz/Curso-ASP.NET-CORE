@@ -25,3 +25,5 @@ C:\Users\MaxiPC\platzi-asp-net-core\obj\Debug\net6.0\platzi-asp-net-core.pdb
 C:\Users\MaxiPC\platzi-asp-net-core\obj\Debug\net6.0\platzi-asp-net-core.genruntimeconfig.cache
 C:\Users\MaxiPC\platzi-asp-net-core\obj\Debug\net6.0\ref\platzi-asp-net-core.dll
 C:\Users\MaxiPC\platzi-asp-net-core\obj\Debug\net6.0\scopedcss\Views\Shared\Simple.cshtml.rz.scp.css
+C:\Users\MaxiPC\platzi-asp-net-core\obj\Debug\net6.0\scopedcss\Views\Shared\ObjetoEscuelaSimple.cshtml.rz.scp.css
+C:\Users\MaxiPC\platzi-asp-net-core\obj\Debug\net6.0\scopedcss\Views\Shared\ListaObjetoEscuela.cshtml.rz.scp.css

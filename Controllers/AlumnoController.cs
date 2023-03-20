@@ -5,15 +5,16 @@ namespace platzi_asp_net_core.Controllers
 {
     public class AlumnoController: Controller
     {
-        public IActionResult Index() {
 
-
+        public IActionResult Index()
+        {
             return View(new Alumno
             {
-                Nombre = "Martial Perez",
+                Nombre = "Pepe Perez",
                 UniqueId = Guid.NewGuid().ToString()
             });
-        }   
+        }
+
         public IActionResult MultiALumno() {
 
             var listaAlumno = GenerarAlumnosAlAzar();

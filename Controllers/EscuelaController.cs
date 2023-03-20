@@ -3,15 +3,17 @@ using platzi_asp_net_core.Models;
 
 namespace platzi_asp_net_core.Controllers
 {
-    public class EscuelaController: Controller
+    public class EscuelaController : Controller
     {
-        public IActionResult Index() {
+        private EscuelaContext context;
+        public IActionResult Index()
+        {
 
-            Escuela escuela = new Escuela() ;
-            escuela.AñoDeCreación= 2005;
+            Escuela escuela = new Escuela();
+            escuela.AñoDeCreación = 2005;
             escuela.UniqueId = Guid.NewGuid().ToString();
             escuela.Nombre = "Roberto Muller";
-            escuela.Pais="Argentina";
+            escuela.Pais = "Argentina";
             escuela.Ciudad = "Resistencia";
             escuela.Direccion = "Misionero Klein 440";
             escuela.TipoEscuela = TiposEscuela.Secundaria;
@@ -19,6 +21,17 @@ namespace platzi_asp_net_core.Controllers
             return View(escuela);
         }
 
+        public EscuelaController(EscuelaContext escuelaContext)
+        {
 
+            {
+                context = escuelaContext;
+
+            }
+
+
+
+
+        }
     }
 }
