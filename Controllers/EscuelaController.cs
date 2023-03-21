@@ -5,19 +5,11 @@ namespace platzi_asp_net_core.Controllers
 {
     public class EscuelaController : Controller
     {
-        private EscuelaContext context;
+        private EscuelaContext _context;
         public IActionResult Index()
         {
 
-            Escuela escuela = new Escuela();
-            escuela.AñoDeCreación = 2005;
-            escuela.UniqueId = Guid.NewGuid().ToString();
-            escuela.Nombre = "Roberto Muller";
-            escuela.Pais = "Argentina";
-            escuela.Ciudad = "Resistencia";
-            escuela.Direccion = "Misionero Klein 440";
-            escuela.TipoEscuela = TiposEscuela.Secundaria;
-
+            var escuela = _context.escuelas.FirstOrDefault();
             return View(escuela);
         }
 
@@ -25,7 +17,7 @@ namespace platzi_asp_net_core.Controllers
         {
 
             {
-                context = escuelaContext;
+                _context = escuelaContext;
 
             }
 

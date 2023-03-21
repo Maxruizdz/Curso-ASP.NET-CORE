@@ -9,6 +9,20 @@ builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var serv = scope.ServiceProvider;
+    try
+    {
+        var contex = serv.GetRequiredService<EscuelaContext>();
+        contex.Database.EnsureCreated();
+    }
+    catch (System.Exception)
+    {
+        throw;
+    }
+
+}
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
