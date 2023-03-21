@@ -1,43 +1,29 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using platzi_asp_net_core.Models;
+using System.Linq;
 
 namespace platzi_asp_net_core.Controllers
 {
     public class AsignaturaController: Controller
     {
+        EscuelaContext _context;
+        public AsignaturaController(EscuelaContext context)
+        {
+
+            _context = context;
+
+
+        }
         public IActionResult Index() {
 
 
-            return View(new Asignatura
-            {
-                Nombre = "Programacion",
-                Id = Guid.NewGuid().ToString()
-            });
+            return View(_context.asignaturas.FirstOrDefault()
+        );
         }   
         public IActionResult MultiAsignatura() {
 
-            var listaAsignaturas = new List<Asignatura>() {
-        new Asignatura {
-        Nombre = "Matemáticas",
-        Id = Guid.NewGuid ().ToString ()
-        },
-        new Asignatura {
-        Nombre = "Educación Física",
-        Id = Guid.NewGuid ().ToString ()
-        },
-        new Asignatura {
-        Nombre = "Castellano",
-      Id = Guid.NewGuid ().ToString ()
-        },
-        new Asignatura {
-        Nombre = "Ciencias Naturales",
-        Id = Guid.NewGuid ().ToString ()
-        },
-        new Asignatura {
-        Nombre = "Programacion",
-        Id = Guid.NewGuid ().ToString ()
-        } };
-            return View("MultiAsignatura",listaAsignaturas);
+
+            return View("MultiAsignatura",_context.asignaturas);
 
         }
     }
