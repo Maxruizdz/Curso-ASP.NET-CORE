@@ -14,12 +14,22 @@ namespace platzi_asp_net_core.Controllers
 
 
         }
-        public IActionResult Index() {
+        [Route("Asignatura/Index/")]
+       [Route("Asignatura/Index/{asignaturaId}")]
+        public IActionResult Index(string asignaturaId)
+        {
+            if (!string.IsNullOrWhiteSpace(asignaturaId))
+            {
+                var asig = _context.asignaturas.Where(p => p.Id == asignaturaId);
+                return View(asig.SingleOrDefault());
 
+            }
+            else { 
+            return View("MultiAsignatura", _context.asignaturas);
 
-            return View(_context.asignaturas.FirstOrDefault()
-        );
-        }   
+            }
+        
+        }
         public IActionResult MultiAsignatura() {
 
 
