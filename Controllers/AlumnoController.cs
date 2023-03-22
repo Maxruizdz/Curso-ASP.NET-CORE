@@ -12,9 +12,20 @@ namespace platzi_asp_net_core.Controllers
         
         
         }
-        public IActionResult Index()
+        public IActionResult Index(string id)
         {
-            return View(_context.alumnos.FirstOrDefault());
+            if (!string.IsNullOrWhiteSpace(id))
+            {
+                var alumno = from alumn in _context.alumnos
+                             where alumn.Id == id
+                             select alumn;
+
+                return View(alumno.SingleOrDefault());
+            }
+            else
+            {
+                return View("MultiAlumno", _context.alumnos);
+            }
         }
 
         public IActionResult MultiALumno() {
