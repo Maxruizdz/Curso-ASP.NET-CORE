@@ -44,18 +44,26 @@ namespace platzi_asp_net_core.Controllers
         }
 
         [HttpPost]
+        [HttpPost]
         public IActionResult Create(Curso curso)
         {
             ViewBag.Fecha = DateTime.Now;
-            var escuela = _context.escuelas.FirstOrDefault();
+            if (ModelState.IsValid)
+            {
+                var escuela = _context.escuelas.FirstOrDefault();
 
-            curso.EscuelaId = escuela.Id;
-            _context.cursos.Add(curso);
-            _context.SaveChanges();
+                curso.EscuelaId = escuela.Id;
+                _context.cursos.Add(curso);
+                _context.SaveChanges();
+                ViewBag.MensajeExra = "Curso Creado";
+                return View("Index", curso);
+            }
+            else
+            {
+                return View(curso);
+            }
 
-            return View();
         }
-
 
     }
 }
