@@ -35,5 +35,27 @@ namespace platzi_asp_net_core.Controllers
             _context = context;
         }
 
+
+        public IActionResult Create()
+        {
+            ViewBag.Fecha = DateTime.Now;
+
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Curso curso)
+        {
+            ViewBag.Fecha = DateTime.Now;
+            var escuela = _context.escuelas.FirstOrDefault();
+
+            curso.EscuelaId = escuela.Id;
+            _context.cursos.Add(curso);
+            _context.SaveChanges();
+
+            return View();
+        }
+
+
     }
 }
